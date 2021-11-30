@@ -1,4 +1,5 @@
 const { User } = require('../../models');
+const { BAD_REQUEST, UNAUTHORIZED, NOT_FOUND} = require('../../lib/error-message');
 
 const auth = (req, res, next) => {
     try {
@@ -23,7 +24,7 @@ const register = (req, res, next) => {
         if(!email || !name || !lastName || !password 
             || name.length > 50 
             || password.length < 5 
-            || lastName.length > 50) throw new Error("BAD_REQUEST");
+            || lastName.length > 50) throw new Error(BAD_REQUEST);
             
         const user = new User(req.body);
         user.save((err, doc) => {
@@ -39,15 +40,15 @@ const register = (req, res, next) => {
 const logIn = (req, res, next) => {
     try {
         const {email, password} = req.body;
-        if(!email || !password) throw new Error("BAD_REQUEST");
+        if(!email || !password) throw new Error(BAD_REQUEST);
 
         User.findOne({email}, (err, userInfo) => {
             if(err) return next(err);
-            if(!userInfo) return next(new Error("NOT_FOUND"));
+            if(!userInfo) return next(new Error(NOT_FOUND));
 
             userInfo.comparePassword(req.body.password, (err, isMatch) => {
                 if(err) return next(err);
-                if(!isMatch) return next(new Error("UNAUTHORIZED"));
+                if(!isMatch) return next(new Error(UNAUTHORIZED));
 
                 userInfo.generateToken((err, user) => {
                     if(err) return next(err);

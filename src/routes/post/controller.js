@@ -1,4 +1,5 @@
 const { Post } = require('../../models');
+const { BAD_REQUEST, } = require('../../lib/error-message');
 
 const uploadImageMulter = require('../../lib/multer');
 
@@ -7,7 +8,7 @@ const uploadPost = (req, res, next) => {
         const { title, type, animal_type:animalType, location, latLng, content} = req.body;
         if(!title || !type || !animalType || !location || !latLng 
             || title.length > 50 
-            || content.length > 2000) throw new Error("BAD_REQUEST");
+            || content.length > 2000) throw new Error(BAD_REQUEST);
 
         const post = new Post(req.body);
         post.save((err, doc) => {

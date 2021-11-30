@@ -1,9 +1,10 @@
 const { Comment } = require('../../models');
+const { BAD_REQUEST, } = require('../../lib/error-message');
 
 const writeComment = (req, res, next) => {
     try {
         const { content } = req.body;
-        if(!content || content.length > 1000) throw new Error("BAD_REQUEST");
+        if(!content || content.length > 1000) throw new Error(BAD_REQUEST);
 
         const comment = new Comment(req.body);
         comment.save((err, comment) => {
