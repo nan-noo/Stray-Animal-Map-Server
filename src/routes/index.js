@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const user = require('./user');
-const post = require('./posts');
+const post = require('./post');
 const comment = require('./comments');
 
 const router = Router();
