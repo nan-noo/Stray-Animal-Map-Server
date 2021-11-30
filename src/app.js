@@ -3,11 +3,10 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
-const { MODE, MONGO_URI} = process.env;
+const router = require('./routes');
+const { errorHandler } = require('./lib/error-handler');
 
-const userRouter = require('./routes/users');
-const postRouter = require('./routes/posts');
-const commentRouter = require('./routes/comments');
+const { MODE, MONGO_URI} = process.env;
 
 const app = express();
 app.use(express.json());
@@ -23,12 +22,12 @@ mongoose.connect( MONGO_URI, {
 }).then(() => console.log('MongoDB connected...'))
     .catch( err => console.log(err));
 
-//router
-app.use('/api/users', userRouter);
-app.use('/api/posts', postRouter);
-app.use('/api/comments', commentRouter);
+
+app.use('/api', router);
 
 // use this to show image in node.js server to client(react)
 app.use('/src/uploads', express.static('src/uploads'));
+
+app.use(errorHandler);
 
 module.exports = app;
