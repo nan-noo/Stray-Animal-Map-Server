@@ -15,6 +15,7 @@ const commentSchema = mongoose.Schema({
     },
     content: {
         type: String,
+        maxlength: 1000,
     }
 }, { timestamps: true}); // 생성된 시간 등, 자동처리
 
