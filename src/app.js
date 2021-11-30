@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const router = require('./routes');
 const { errorHandler } = require('./lib/error-handler');
 
-const { MODE, MONGO_URI} = process.env;
+const { MODE, MONGO_URI } = process.env;
 
 const app = express();
 app.use(express.json());
@@ -20,7 +20,7 @@ mongoose.connect( MONGO_URI, {
     useCreateIndex: true,
     useFindAndModify: false
 }).then(() => console.log('MongoDB connected...'))
-    .catch( err => console.log(err));
+    .catch(console.log);
 
 app.use('/api', router);
 
