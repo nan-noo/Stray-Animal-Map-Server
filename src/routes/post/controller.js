@@ -1,18 +1,6 @@
-const express = require('express');
-const multer = require('multer');
 const { Post } = require('../../models');
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'src/uploads/')
-    },
-    filename: function(req, file, cb) {
-        cb(null, `${Date.now()}_${file.originalname}`)
-    },
-});
-
-const uploadImageMulter = multer({storage}).single('file');
-
+const uploadImageMulter = require('../../lib/multer');
 
 const uploadPost = (req, res, next) => {
     try {
