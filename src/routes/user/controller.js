@@ -52,7 +52,7 @@ const logIn = (req, res, next) => {
 
                 userInfo.generateToken((err, user) => {
                     if(err) return next(err);
-                    return res.cookie("x_auth", user.token).status(200).json({
+                    return res.status(200).json({
                         loginSuccess: true,
                         userId: user._id,
                         userToken: user.token,

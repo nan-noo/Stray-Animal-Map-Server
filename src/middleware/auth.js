@@ -2,8 +2,6 @@ const { User } = require('../models');
 
 const auth = (req, res, next) => {
     try {
-        // const token = req.cookies.x_auth;
-        // if(!token) throw new Error("UNAUTHORIZED");
         const token = req.body.x_auth;
         if(!token) throw new Error("UNAUTHORIZED");
 
