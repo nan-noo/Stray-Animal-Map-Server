@@ -36,10 +36,20 @@ you can register lost or found animals on the map
     S3_BUCKET=<YOUR_S3_BUCKET_NAME>
 ```
 
-3. run server
+3. create awsconfig.json in ./src/config/
+
+```JSON
+{
+    "accessKeyId": "<YOUR_KEY_ID>",
+    "secretAccessKey": "<YOUR_KEY_SECRET>",
+    "region": "<YOUR_BUCKET_REGION>"
+}
+```
+
+4. run server in root folder
 
 ```
-    node index.js
+    node src/index.js
     // or
     npm run backend
 ```
