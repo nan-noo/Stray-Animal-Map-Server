@@ -29,6 +29,8 @@ you can register lost or found animals on the map
 
     PORT=<YOUR_PORT>
 
+    COOKIE_SECRET=<YOUR_COOKIE_SECRET>
+
     JWT_SECRET=<YOUR_SECRET>
 
     MONGO_URI=<YOUR_MONGO_URI>
