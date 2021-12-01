@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan(MODE !== 'prod' ? 'dev' : 'combined'));
-app.use(cookieParser());
+app.use(cookieParser(process.env.COOKIE_SECRET, { sameSite: "none", secure: true }));
 app.use(express.urlencoded({extended: true}));
 
 mongoose.connect( MONGO_URI, {
