@@ -75,6 +75,7 @@ you can register lost or found animals on the map
 | "multer-s3": "^2.10.0"    | save image to aws s3 |
 | "aws-sdk": "^2.1039.0"    | use aws              |
 | "morgan": "^1.10.0"       | handle log           |
+| "cors": "^2.8.5"          | handle cors          |
 
 ---
 
