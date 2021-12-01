@@ -10,7 +10,10 @@ const { errorHandler } = require('./lib/error-handler');
 const { MODE, MONGO_URI } = process.env;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true,
+}));
 app.use(express.json());
 app.use(morgan(MODE !== 'prod' ? 'dev' : 'combined'));
 app.use(cookieParser(process.env.COOKIE_SECRET, { sameSite: "none", secure: true }));

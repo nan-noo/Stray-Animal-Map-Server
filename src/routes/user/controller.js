@@ -54,7 +54,8 @@ const logIn = (req, res, next) => {
                     if(err) return next(err);
                     return res.cookie("x_auth", user.token).status(200).json({
                         loginSuccess: true,
-                        userId: user._id
+                        userId: user._id,
+                        userToken: user.token,
                     });
                 });
             });
