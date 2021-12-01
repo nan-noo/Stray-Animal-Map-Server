@@ -32,6 +32,8 @@ you can register lost or found animals on the map
     JWT_SECRET=<YOUR_SECRET>
 
     MONGO_URI=<YOUR_MONGO_URI>
+
+    S3_BUCKET=<YOUR_S3_BUCKET_NAME>
 ```
 
 3. run server
@@ -52,15 +54,17 @@ you can register lost or found animals on the map
 
 ## Modules
 
-| server                    | description      |
-| ------------------------- | ---------------- |
-| "bcrypt": "^5.0.1"        | hash encryption  |
-| "cookie-parser": "^1.4.5" | use cookie       |
-| "express": "^4.17.1"      | server framework |
-| "jsonwebtoken": "^8.5.1"  | handle auth user |
-| "mongoose": "^5.13.3"     | use mongoDB      |
-| "multer": "^1.4.3"        | save image       |
-| "morgan": "^1.10.0"       | handle log       |
+| server                    | description          |
+| ------------------------- | -------------------- |
+| "bcrypt": "^5.0.1"        | hash encryption      |
+| "cookie-parser": "^1.4.5" | use cookie           |
+| "express": "^4.17.1"      | server framework     |
+| "jsonwebtoken": "^8.5.1"  | handle auth user     |
+| "mongoose": "^5.13.3"     | use mongoDB          |
+| "multer": "^1.4.3"        | save image           |
+| "multer-s3": "^2.10.0"    | save image to aws s3 |
+| "aws-sdk": "^2.1039.0"    | use aws              |
+| "morgan": "^1.10.0"       | handle log           |
 
 ---
 

@@ -24,7 +24,7 @@ const uploadImage = (req, res, next) => {
     try {
         uploadImageMulter(req, res, err => {
             if(err) return next(err);
-            return res.status(200).json({success: true, filePath: req.file.path});
+            return res.status(200).json({success: true, filePath: req.file.location});
         });
     } catch(err) {
         return next(err);

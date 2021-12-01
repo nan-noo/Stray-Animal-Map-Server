@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nan-noo/VideoSite#readme",
   "dependencies": {
+    "aws-sdk": "^2.1040.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
@@ -26,7 +27,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "morgan": "^1.10.0",
-    "multer": "^1.4.3"
+    "multer": "^1.4.3",
+    "multer-s3": "^2.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
