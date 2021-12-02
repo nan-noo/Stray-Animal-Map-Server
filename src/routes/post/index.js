@@ -6,7 +6,7 @@ const {auth} = require('../../middleware/auth');
 const router = Router();
 
 router.post('/post', auth, controller.uploadPost);
-router.post('/image', auth, controller.uploadImage);
+router.post('/image', controller.uploadImage);
 
 router.get('/posts', controller.getPostList);
 router.get('/post/:postId', controller.getOnePost);
