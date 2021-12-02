@@ -9,6 +9,7 @@ you can register lost or found animals on the map
 <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>&nbsp;
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>&nbsp;
 <img src="https://img.shields.io/badge/GoogleMapsAPI-4285f4?style=flat-square&logo=Google Maps&logoColor=white"/>&nbsp;
+<img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=Amazon AWS&logoColor=white"/>&nbsp;
 </p>
 
 ---
@@ -83,3 +84,14 @@ you can register lost or found animals on the map
 
 - more detail  
   <a href="https://first-daisy-ddd.notion.site/Stray-Animal-Map-209a68fa7d974e60bf814b9282bd2ca1">LINK</a>
+
+---
+
+## Trouble-shooting
+
+항상 cors가 문제다!!! 단순 동일 출처가 아니어서 요청이 안되는 경우는 cors 모듈 호출만 하면 해결되었지만, 프론트의 쿠키가 서버에 전송이 안 됐다. cookie를 보낼 수 있기 위해 프론트와 백 모두 설정을 더 해야 했다.
+
+- 프론트: 인증, 로그아웃 관련 action 함수에서 axios 요청을 보낼 때 config option으로 {withCredentials: true} 추가
+- 백: cors({origin: true, credentials: true}) 옵션 필요
+
+이렇게 하고 나서 로컬에서는 오류가 안 났는데, ec2 정책 상 allow-origin이 항상 '\*'이라 쿠키와 같은 credential을 허용하지 않는다고 한다.. 쿠키 대신 localstorage로 바꿔봐야 겠다.. -> 성공!!!!! cors 에러가 사라졌다.
