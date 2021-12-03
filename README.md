@@ -37,19 +37,12 @@ you can register lost or found animals on the map
     MONGO_URI=<YOUR_MONGO_URI>
 
     S3_BUCKET=<YOUR_S3_BUCKET_NAME>
+    
+    AWS_ACCESS_KEY_ID=<YOUR_KEY_ID>
+    AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>
 ```
 
-3. create awsconfig.json in ./src/config/
-
-```JSON
-{
-    "accessKeyId": "<YOUR_KEY_ID>",
-    "secretAccessKey": "<YOUR_KEY_SECRET>",
-    "region": "<YOUR_BUCKET_REGION>"
-}
-```
-
-4. run server in root folder
+3. run server in root folder
 
 ```
     node src/index.js
@@ -79,6 +72,12 @@ you can register lost or found animals on the map
 | "aws-sdk": "^2.1039.0"    | use aws              |
 | "morgan": "^1.10.0"       | handle log           |
 | "cors": "^2.8.5"          | handle cors          |
+
+---
+
+## Service Flow
+
+![그림1](https://user-images.githubusercontent.com/54002105/144595017-8f2086b3-4150-4d05-9e36-7a4c0dfa2246.png)
 
 ---
 
